@@ -38,11 +38,11 @@ Các mô hình dưới 7 tỷ tham số khi chạy với GPU T4 của Google Col
 - Model: `flan-t5`
 - Evaluate trên tổng số 7287 câu hỏi trắc nghiệm
 
-|  | Epochs |Accuracy |
-|--|--|--|
-|`flan-t5-small` | 0 |19.32|
-|`flan-t5-base` | 0 |26.86|
-|`flan-t5-large` | 0 |27.67|
-|`flan-t5-base-mathqa_v1`|3 |30.57|
-|`flan-t5-base-mathqa_v2`|5 |34.07|
-|`flan-t5-base-mathqa_v3`|8 |39.60|
+|  |Paramaters | Epochs |Accuracy |
+|--|--|--|--|
+|`flan-t5-small`|77M| 0 |19.32|
+|`flan-t5-base` |248M| 0 |26.86|
+|`flan-t5-large`|783M| 0 |27.67|
+|`flan-t5-base-mathqa_v1`|248M|3 |30.57|
+|`flan-t5-base-mathqa_v2`|248M|5 |34.07|
+|`flan-t5-base-mathqa_v3`|248M|8 |39.60|
