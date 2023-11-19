@@ -19,6 +19,19 @@ Flan-T5 là một mô hình được tinh chỉnh từ T5 với thêm hơn 1000 
 - Model: `flan-t5`
 - Evaluate trên tổng số 7287 câu hỏi trắc nghiệm
 
+Kết quả của mô hình dựa trên 5000 câu đầu của tập train:
+
+| Index | Total Question | Correct Answers | Percentage Correct |
+|---|---|---|---|
+| `gain` | 886 | 469 | 52.93 |
+| `general` | 2243 | 940 | 41.91 |
+| `geometry` | 342 | 156 | 45.61 |
+|`other` | 286 | 121 | 42.31 |
+| `physics` | 1162 | 582 | 50.09 |
+| `probability` | 81 | 27 | 33.33 |
+
+Kết quả của mô hình trên tập public test (7287 câu hỏi trắc nghiệm)
+
 |  |Paramaters | Epochs |Accuracy |
 |--|--|--|--|
 |`flan-t5-small`|77M| 0 |19.32|
@@ -42,3 +55,12 @@ Một số mô hình ngôn ngữ như ToRA, LLeMMA, WizardMath,... được đá
 Tuy nhiên để có độ chính xác cao cần yêu cầu mô hình cỡ lớn với rất nhiều tham số, mô hình dưới 7 tỷ tham số thường khó đạt được độ chính xác như vậy và bởi tài nguyên hạn chế của máy tính thông thường nên thời gian sinh lâu. 
 
 Các mô hình dưới 7 tỷ tham số khi chạy với GPU T4 của Google Colab thường chỉ mang lại độ chính xác dưới **10%** cho việc trả lời đúng kết quả chỉ trong 1 lần sinh. Do đó, giải pháp là sử dụng API của một mô hình lớn như GPT 3.5, cụ thể ở đây sử dụng mô hình `gpt-3.5-turbo-instruct` của OpenAI và kỹ thuật prompt để sinh kết quả chỉ trong 1 request với độ chính xác khi kiểm tra với dữ liệu trong `data/test/` là **24.8%**.
+
+### Chung kết
+
+| Model | Mean time | Accuracy |
+|---|---|---|
+| `flan-t5-small-mathqa-v8` | 0.0569 | 209/604 |
+| `flan-t5-large` | 0.1452 | 165/604 |
+| `API gpt-3.5-turbo-instruct` | 0.3129 | 166/604 |
+| `flan-t5-base-mathqa-v3` | 0.071 | 235/604 |
